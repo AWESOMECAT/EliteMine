@@ -1,0 +1,37 @@
+<html>
+<head>
+<script type="text/javascript" src="bbcode.js"></script>
+</head>
+<body>
+<script type="text/javascript">
+function test(){
+	look = new Array(
+          /\[img\](.*?)=\1\[\/img\]/,
+	      /\[c\:(.*?)\](.*?)\[\/c\]/,
+	      /\[a\:(left|center|right|justify)\](.*?)\[\/a\]/,
+          /\[url=([\w]+?:\/\/[^ \\"\n\r\t<]*?)\](.*?)\[\/url\]/,
+          /\[url\]((www|ftp|)\.[^ \\"\n\r\t<]*?)\[\/url\]/,
+          /\[url=((www|ftp|)\.[^ \\"\n\r\t<]*?)\](.*?)\[\/url\]/,
+          /\[email\](([a-z0-9&\-_.]+?)@([\w\-]+\.([\w\-\.]+\.)?[\w]+))\[\/email\]/,
+          /\[b\](.*?)\[\/b\]/);
+
+	change = new Array(
+          "<img src=\"$1\" alt=\"An image\">",
+          "<span style=\"color: $1;\">$2</span",
+          "<span style=\"text-align: $1;\">$2</span>"
+          "<a href=\"$1\" target=\"blank\">$2</a>",
+          "<a href=\"http://$1\" target=\"blank\">$1</a>",
+          "<a href=\"$1\" target=\"blank\">$1</a>",
+          "<a href=\"mailto:$1\">$1</a>",
+          "<b>$1</b>");
+	var text = new String('[b]test[/b]');
+	for(i = 0; i < search.length; i++){
+	text = text.replace(look[i], change[i]);
+	}
+	document.getElementById('test').value = text;
+}
+</script>
+<input type="text" id="test"><br />
+<input type="button" value="Test" onclick="test()">
+</body>
+</html>
