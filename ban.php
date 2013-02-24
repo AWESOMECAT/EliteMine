@@ -21,7 +21,7 @@ include_once('navbar.php');
 <?PHP
 db_connect();
 
-//Retrieve Users 
+//Retrieve Users
 $query = 'SELECT * FROM `NSusers` ORDER BY userid DESC';
 $result = mysql_query($query);
 
